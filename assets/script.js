@@ -1,7 +1,6 @@
-//global variables
-
 
 //functions
+//saves tasks to local storage
 function saveTask() {
     console.log($(this).parent());
     
@@ -10,7 +9,7 @@ function saveTask() {
     
     localStorage.setItem(hourTime, hourTask);
 }
-//event listeners
+//sets the future, past and present time block colors
 function setColors() {
     let currentHour = moment().hour();
    
@@ -32,7 +31,6 @@ window.setInterval(function() {
     $('#currentDay').text(moment().format("hh:mm:ss MMMM Do, YYYY"));
 }, 1000);
 //grab tasks from local storage
-
 $("#h9 .js-task").val(localStorage.getItem("h9"));
 $("#h10 .js-task").val(localStorage.getItem("h10"));
 $("#h11 .js-task").val(localStorage.getItem("h11"));
@@ -44,4 +42,5 @@ $("#h16 .js-task").val(localStorage.getItem("h16"));
 $("#h17 .js-task").val(localStorage.getItem("h17"));
 //save task
 $('.js-saveBtn').on("click", saveTask);
+//runs the function to display time block colors
 setColors();
